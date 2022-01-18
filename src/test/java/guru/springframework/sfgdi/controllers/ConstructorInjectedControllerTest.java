@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 
 class ConstructorInjectedControllerTest {
 
-    ConstructorInjectedController controller;
+    ConstructorInjectionController controller;
 
     @BeforeEach
     void setUp() {
-        controller = new ConstructorInjectedController(new ConstructorGreetingService());
+        controller = new ConstructorInjectionController(new ConstructorGreetingService());
     }
 
     @Test
