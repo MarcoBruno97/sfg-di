@@ -6,9 +6,10 @@ import guru.springframework.sfgdi.repositories.GreetingRepositoryEnglishImpl;
 import guru.springframework.sfgdi.repositories.GreetingRepositorySpanishImpl;
 import guru.springframework.sfgdi.services.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
-
-@PropertySource("classpath:datasource.properties")//This will tell to Spring to look up into the file datasource.properties for external properties. Spring will bring up in the context.Properties file have to stay in resources directory
+@EnableConfigurationProperties(SfgConstructorConfig.class)//this will be bring up as Spring component
+//@PropertySource("classpath:datasource.properties")//This will tell to Spring to look up into the file datasource.properties for external properties. Spring will bring up in the context.Properties file have to stay in resources directory
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
@@ -16,7 +17,8 @@ public class GreetingServiceConfig {
     @Bean
     FakeDataSource fakeDataSource(@Value("${guru.username}") String username,//@Value() will inject the value of properties of username in file datasource.properties into username var
                                   @Value("${guru.password}") String password,
-                                  @Value("${guru.jdbcurl}") String jdbcurl){
+                                  @Value("${guru.jdbcurl}") String jdbcurl)//invece di questo potevi dichiarare una proprieta' di tipo SfgConfiguration e prenderli da li' i valori
+     {
         FakeDataSource fakeDataSource = new FakeDataSource();
         fakeDataSource.setUsername(username);
         fakeDataSource.setPassword(password);
