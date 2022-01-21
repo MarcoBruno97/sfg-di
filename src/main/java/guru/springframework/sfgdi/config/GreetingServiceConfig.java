@@ -8,7 +8,7 @@ import guru.springframework.sfgdi.services.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
 
-@PropertySource("classpath:datasource.properties")//This will tell to Spring to look up into the file datasource.properties for external properties. Spring will bring up in the context
+@PropertySource("classpath:datasource.properties")//This will tell to Spring to look up into the file datasource.properties for external properties. Spring will bring up in the context.Properties file have to stay in resources directory
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreetingServiceConfig {
