@@ -64,8 +64,8 @@ public class GreetingServiceConfig {
         return new PropertyInjectedGreetingService();
     }
 
-    @Bean
-    SetterInjectedGreetingService setterInjectedGreetingService(){
-        return new SetterInjectedGreetingService();
-    }
+//    @Bean
+//    SetterInjectedGreetingService setterInjectedGreetingService(){
+//        return new SetterInjectedGreetingService();
+//    }
 }
